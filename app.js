@@ -4,12 +4,15 @@ const labelElement =  document.querySelector("#label")
 const imageElement =  document.querySelector("#cake-img")
 const ingredientsListElement =  document.querySelector(".ingredients")
 
-let urlApi = `${rootUrl}?q=birthday+cake&app_id=589ecbd6&app_key=6d6116bfcbdc60fe641222727dc9eb8f&from=0&to=1`
+const searchedItems = 10;
+
+let urlApi = `${rootUrl}?q=birthday+cake&app_id=589ecbd6&app_key=6d6116bfcbdc60fe641222727dc9eb8f&from=0&to=${searchedItems}`
 
 fetch(urlApi)
 .then((response) => response.json())
 .then((data) => {
   console.log('Success:', data);
+  console.log(data.hits.length);
   recipeUrlElement.setAttribute("href", data.hits[0].recipe.url);
   labelElement.innerHTML = data.hits[0].recipe.label;
   imageElement.src = data.hits[0].recipe.image;
