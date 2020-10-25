@@ -2,7 +2,7 @@ const rootUrl = "https://api.edamam.com/search";
 const recipeUrlElement = document.querySelector("#recipe-url");
 const labelElement = document.querySelector("#label");
 const imageElement = document.querySelector("#cake-img");
-const ingredientsListElement = document.querySelector(".ingredients");
+let ingredientsListElement = document.querySelector(".ingredients");
 
 const apiUrl = `${rootUrl}?q=birthday+cake+strawberry&app_id=589ecbd6&app_key=6d6116bfcbdc60fe641222727dc9eb8f`;
 
