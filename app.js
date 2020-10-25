@@ -31,6 +31,9 @@ function fetchRecipies(apiUrl) {
       ingredientList.forEach((elem) => {
         const item = document.createElement("li");
         ingredientsListElement.appendChild(item);
+        if (elem == "For the Cake:" || elem == "For the Frosting:") {
+          item.className = "heading-item"
+        } 
         item.innerHTML = elem;
       });
     })
