@@ -9,7 +9,7 @@ function searchIngredient(e) {
   e.preventDefault();
   inputElements.forEach((elem) => {
     //empties the list of contents
-    ingredientsListElement = "";
+    ingredientsListElement.innerHTML = "";
     if (elem.checked == true) {
       const apiUrl = `${rootUrl}?q=birthday+cake+${elem.value}&app_id=589ecbd6&app_key=6d6116bfcbdc60fe641222727dc9eb8f`;
       fetchRecipies(apiUrl);
