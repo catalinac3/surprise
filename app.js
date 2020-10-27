@@ -1,19 +1,21 @@
-const rootUrl = "https://api.edamam.com/search";
-const recipeUrlElement = document.querySelector("#recipe-url");
-const labelElement = document.querySelector("#label");
-const imageElement = document.querySelector("#cake-img");
-const ingredientsListElement = document.querySelector(".ingredients");
+checkedRadio = document.querySelector("input[name='ingredient']:checked");
+searchIngredient(checkedRadio);
 
-const apiUrl = `${rootUrl}?q=birthday+cake+strawberry&app_id=589ecbd6&app_key=6d6116bfcbdc60fe641222727dc9eb8f`;
+/**
+ * This function adds and ingredient a url, that is used to 
+ * make the call to the API for birthday cakes with that ingredient
+ * 
+ * @param {object} radioInput radio input DOM Element
+ */
+function searchIngredient(radioInput) {
+  const rootUrl = "https://api.edamam.com/search";
+  const recipeUrlElement = document.querySelector("#recipe-url");
+  const labelElement = document.querySelector("#label");
+  const imageElement = document.querySelector("#cake-img");
+  const ingredientsListElement = document.querySelector(".ingredients");
 
-const form = document.querySelector("#choose-ingredient-form");
-// list of all input elements
-const inputElements = document.querySelectorAll("input[name='ingredient']");
-form.addEventListener("submit", searchIngredient);
-
-fetchRecipies(apiUrl);
-
-function fetchRecipies(apiUrl) {
+  ingredientsListElement.innerHTML = "";
+  const apiUrl = `${rootUrl}?q=birthday+cake+${radioInput.value}&app_id=589ecbd6&app_key=6d6116bfcbdc60fe641222727dc9eb8f`;
   fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => {
