@@ -1,22 +1,23 @@
+const labelElement = document.querySelector("#label");
+const imageElement = document.querySelector("#cake-img");
+const ingredientsListElement = document.querySelector(".ingredients");
+const recipeUrlElement = document.querySelector("#recipe-url");
+
 checkedRadio = document.querySelector("input[name='ingredient']:checked");
 searchIngredient(checkedRadio);
 
 /**
- * This function adds and ingredient a url, that is used to 
+ * This function adds and ingredient a url, that is used to
  * make the call to the API for birthday cakes with that ingredient
- * 
+ *
  * @param {object} radioInput radio input DOM Element
  */
 function searchIngredient(radioInput) {
-  const rootUrl = "https://api.edamam.com/search";
-  const recipeUrlElement = document.querySelector("#recipe-url");
-  const labelElement = document.querySelector("#label");
-  const imageElement = document.querySelector("#cake-img");
-  const ingredientsListElement = document.querySelector(".ingredients");
-
   ingredientsListElement.innerHTML = "";
-  const apiUrl = `${rootUrl}?q=birthday+cake+${radioInput.value}&app_id=589ecbd6&app_key=6d6116bfcbdc60fe641222727dc9eb8f`;
-  fetch(apiUrl)
+  const rootUrl = "https://api.edamam.com/search";
+  fetch(
+    `${rootUrl}?q=birthday+cake+${radioInput.value}&app_id=589ecbd6&app_key=6d6116bfcbdc60fe641222727dc9eb8f`
+  )
     .then((response) => response.json())
     .then((data) => {
       console.log("Success:", data);
@@ -41,7 +42,7 @@ function searchIngredient(radioInput) {
           lowCaseElem.includes("for the cake") ||
           lowCaseElem.includes("for the frosting")
         ) {
-          item.className = "heading-item";
+          item.classList.add("heading-item");
         }
         item.innerHTML = elem;
       });
