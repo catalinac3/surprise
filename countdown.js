@@ -38,5 +38,6 @@ let intervalID = setInterval(function() {
     countdownDivElem.style.display = "none";
     mainDivElem.style.display = "initial";
     document.querySelector("title").innerHTML = document.querySelector("h1").innerHTML ="Happy Birthday, Sebastian!";
+    document.querySelector("h1").innerHTML += "<br> Let's bake a cake?";
   }
 }, 1000);
