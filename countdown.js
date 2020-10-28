@@ -11,7 +11,7 @@ const mainDivElem = document.querySelector("#mainDiv");
 mainDivElem.style.display = "none";
 
 // Update the count down every 1 second
-let x = setInterval(function() {
+let intervalID = setInterval(function() {
 
   // Get today's date and time
   const now = new Date().getTime();
@@ -34,7 +34,7 @@ let x = setInterval(function() {
    <i class="fas fa-gift"></i>`;
   // If the count down is over, write some text 
   if (distance < 0) {
-    clearInterval(x);
+    clearInterval(intervalID);
     countdownDivElem.style.display = "none";
     mainDivElem.style.display = "initial";
     document.querySelector("title").innerHTML = document.querySelector("h1").innerHTML ="Happy Birthday, Sebastian!";
