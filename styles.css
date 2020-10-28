@@ -7,3 +7,9 @@ h1 {
   list-style-type: none;
   font-weight: bold;
 }
+
+#countdownDiv{
+  text-align: center;
+  font-size: 60px;
+  margin-top: 0px;
+}
