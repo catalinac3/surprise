@@ -1,4 +1,4 @@
-console.log("contdown,js is running");
+//console.log("contdown.js is running");
 
 //Here is a simple version of the countdown taken from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_countdown
 // Set the date we're counting down to
@@ -37,5 +37,6 @@ let x = setInterval(function() {
     clearInterval(x);
     countdownDivElem.style.display = "none";
     mainDivElem.style.display = "initial";
+    document.querySelector("title").innerHTML = document.querySelector("h1").innerHTML ="Happy Birthday, Sebastian!";
   }
 }, 1000);
