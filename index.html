@@ -6,47 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Surprise</title>
-
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
+    <script src="countdown.js" defer></script>
   </head>
   <body>
     <h1>Surprise</h1>
+    <div id="countdownDiv"></div>
 
-    <form id="choose-ingredient-form">
-      <h2>Choose your favorite Ingredient</h2>
-      <input
-        id="strawberryRadio"
-        type="radio"
-        name="ingredient"
-        value="strawberry"
-        onclick="searchIngredient(this)"
-        checked
-      />
-      <!-- "checked" is added so when the page loads it has strawberry already selected -->
-      <label for="strawberryRadio">Strawberry</label><br />
-      <input
-        id="chocolateRadio"
-        type="radio"
-        name="ingredient"
-        value="chocolate"
-        onclick="searchIngredient(this)"
-      />
-      <label for="chocolateRadio">Chocolate</label><br />
-      <!-- "id - for" allow clicking on the name to select the radio button -->
-      <input
-        id="vanillaRadio"
-        type="radio"
-        name="ingredient"
-        value="vanilla"
-        onclick="searchIngredient(this)"
-      />
-      <label for="vanillaRadio">Vanilla</label><br /><br />
-    </form>
+    <div id="mainDiv">
+      <form id="choose-ingredient-form">
+        <h2>Choose your favorite Ingredient</h2>
+        <input
+          id="strawberryRadio"
+          type="radio"
+          name="ingredient"
+          value="strawberry"
+          onclick="searchIngredient(this)"
+          checked
+        />
+        <!-- "checked" is added so when the page loads it has strawberry already selected -->
+        <label for="strawberryRadio">Strawberry</label><br />
+        <input
+          id="chocolateRadio"
+          type="radio"
+          name="ingredient"
+          value="chocolate"
+          onclick="searchIngredient(this)"
+        />
+        <label for="chocolateRadio">Chocolate</label><br />
+        <!-- "id - for" allow clicking on the name to select the radio button -->
+        <input
+          id="vanillaRadio"
+          type="radio"
+          name="ingredient"
+          value="vanilla"
+          onclick="searchIngredient(this)"
+        />
+        <label for="vanillaRadio">Vanilla</label><br /><br />
+      </form>
 
-    <h3 id="label">---</h3>
-    <img id="cake-img" src="" width="300" height="300" />
-    <ul class="ingredients"></ul>
-    <a id="recipe-url" href="#"><button>press here for the recipe</button></a>
+      <h3 id="label">---</h3>
+      <img id="cake-img" src="" width="300" height="300" />
+      <ul class="ingredients"></ul>
+      <a id="recipe-url" href="#"><button>press here for the recipe</button></a>
+    </div>
   </body>
 </html>

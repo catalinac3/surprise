@@ -1,9 +1,21 @@
+body {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 h1 {
   color: blue;
+  font-size: 4em;
+  text-align: center;
 }
 
 .heading-item {
-  margin-left: -1em; 
   list-style-type: none;
   font-weight: bold;
+  margin: .5em auto;
+}
+
+#countdownDiv {
+  text-align: center;
+  font-size: 4em;
 }
