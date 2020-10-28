@@ -28,9 +28,10 @@ let x = setInterval(function() {
 
   const countdownDivElem = document.querySelector("#countdownDiv");
   // Output the result in an element with id="demo"
-  countdownDivElem.innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-    
+  countdownDivElem.innerHTML =
+  `<i class="fas fa-gift"></i>
+   ${days}d ${hours}h ${minutes}m ${seconds}s
+   <i class="fas fa-gift"></i>`;
   // If the count down is over, write some text 
   if (distance < 0) {
     clearInterval(x);
