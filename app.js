@@ -27,40 +27,26 @@ function searchIngredient(radioInput) {
         // creates a div to contain each recipe
         recipeArray[i] = document.createElement("div");
         recipeDiv.appendChild(recipeArray[i]);
-        //creates label element -- title of the recipe
-        const labelElement = document.createElement("h3");
-        labelElement.innerHTML = data.hits[i].recipe.label;
-        recipeArray[i].appendChild(labelElement);
-        // adds the picture
-        const imageElement = document.createElement("img");
-        imageElement.src = data.hits[i].recipe.image;
-        recipeArray[i].appendChild(imageElement);
-        // adds the list of ingredients
-        const ingredientsListElement = document.createElement("ul");
-        recipeArray[i].appendChild(ingredientsListElement);
-        let ingredientList = data.hits[i].recipe.ingredientLines;
+
         // Since different cakes will have different amount of ingredients
-        // then this codes create list items according to the number of ingredients
-        ingredientList.forEach((elem) => {
-          const item = document.createElement("li");
-          ingredientsListElement.appendChild(item);
+        // then this codes create list of ingredients according to the number of ingredients
+        const ingredientsList = data.hits[i].recipe.ingredientLines;
+        let organizedIngredients = "";
+        ingredientsList.forEach(elem => {
           const lowCaseElem = elem.toLowerCase();
-          if (
+          const resultElem =
             lowCaseElem.includes("for the cake") ||
             lowCaseElem.includes("for the frosting")
-          ) {
-            item.classList.add("heading-item");
-          }
-          item.innerHTML = elem;
+              ? `<li class="heading-item">${elem}</li>`
+              : `<li>${elem}</li>`;
+
+          organizedIngredients += resultElem;
         });
-        // adds button with a link to the recipe
-        const recipeUrlElement = document.createElement("a");
-        recipeArray[i].appendChild(recipeUrlElement);
-        const recipeButton = document.createElement("button");
-        recipeUrlElement.setAttribute("href", data.hits[i].recipe.url);
-        recipeUrlElement.appendChild(recipeButton);
-        recipeButton.innerHTML =
-          "to the recipe <i class='fas fa-birthday-cake'></i>";
+        // creates label element -- title of the recipe, added picture, add list of ingredients, adds button with a link to the recipe and deco icon
+        recipeArray[i].innerHTML = `<h3>${data.hits[i].recipe.label}</h3>
+                                    <img src=${data.hits[i].recipe.image}>
+                                    <ul>${organizedIngredients}</ul>
+                                    <a href ="${data.hits[i].recipe.url}"><button>to the recipe <i class="fas fa-birthday-cake"></i></button></a>`;
       }
     })
     .catch((error) => {
