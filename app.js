@@ -1,4 +1,4 @@
-const recipeDiv = document.querySelector("#recipes");
+const recipeDiv = document.querySelector("#recipesDiv");
 checkedRadio = document.querySelector("input[name='ingredient']:checked");
 searchIngredient(checkedRadio);
 
@@ -22,17 +22,16 @@ function searchIngredient(radioInput) {
       // With a free plan we are allowed to request max of 100 items.
       // console.log(data.hits.length);
 
-      let recipeArray = [];
-      for (let i = 0; i < data.hits.length; i++) {
+      data.hits.forEach((element) => {
         // creates a div to contain each recipe
-        recipeArray[i] = document.createElement("div");
-        recipeDiv.appendChild(recipeArray[i]);
+        let recipeContainer = document.createElement("div");
+        recipeDiv.appendChild(recipeContainer);
 
         // Since different cakes will have different amount of ingredients
         // then this codes create list of ingredients according to the number of ingredients
-        const ingredientsList = data.hits[i].recipe.ingredientLines;
+        const ingredientsList = element.recipe.ingredientLines;
         let organizedIngredients = "";
-        ingredientsList.forEach(elem => {
+        ingredientsList.forEach((elem) => {
           const lowCaseElem = elem.toLowerCase();
           const resultElem =
             lowCaseElem.includes("for the cake") ||
@@ -43,11 +42,11 @@ function searchIngredient(radioInput) {
           organizedIngredients += resultElem;
         });
         // creates label element -- title of the recipe, added picture, add list of ingredients, adds button with a link to the recipe and deco icon
-        recipeArray[i].innerHTML = `<h3>${data.hits[i].recipe.label}</h3>
-                                    <img src=${data.hits[i].recipe.image}>
+        recipeContainer.innerHTML = `<h3>${element.recipe.label}</h3>
+                                    <img src=${element.recipe.image}>
                                     <ul>${organizedIngredients}</ul>
-                                    <a href ="${data.hits[i].recipe.url}"><button>to the recipe <i class="fas fa-birthday-cake"></i></button></a>`;
-      }
+                                    <a href ="${element.recipe.url}"><button>to the recipe <i class="fas fa-birthday-cake"></i></button></a>`;
+      });
     })
     .catch((error) => {
       console.error("Error:", error);
