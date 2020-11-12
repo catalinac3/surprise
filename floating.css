@@ -1,0 +1,23 @@
+:root {
+  --len: 500px;
+}
+
+.x {
+  animation: x 7s linear infinite alternate;
+}
+
+.y {
+   animation: y 3s linear infinite alternate;
+}
+
+@keyframes x {
+  100% {
+    transform: translateX(calc(100% - var(--len)));
+  }
+}
+
+@keyframes y {
+  100% {
+    transform: translateY(calc(100% - 1em));
+  }
+}

@@ -1,4 +1,4 @@
-//console.log("contdown.js is running");
+const countdownDivElem = document.querySelector("#countdownDiv");
 
 //Here is a simple version of the countdown taken from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_countdown
 // Set the date we're counting down to
@@ -26,7 +26,6 @@ let intervalID = setInterval(function() {
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  const countdownDivElem = document.querySelector("#countdownDiv");
   // Output the result in an element with id="demo"
   countdownDivElem.innerHTML =
   `<i class="fas fa-gift"></i>
@@ -41,3 +40,9 @@ let intervalID = setInterval(function() {
     document.querySelector("h1").innerHTML += "<br> Let's bake a cake?";
   }
 }, 1000);
+
+//updating len variable in css
+document.querySelector(".x").addEventListener("animationiteration", e => {
+  //console.log(countdownDivElem.offsetWidth + "px");
+  document.documentElement.style.setProperty('--len', countdownDivElem.offsetWidth + "px");
+});

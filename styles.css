@@ -18,6 +18,7 @@ form {
 #countdownDiv {
   text-align: center;
   font-size: 4em;
+  display: inline-block;
 }
 
 .background-image {
