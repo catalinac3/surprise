@@ -3,6 +3,16 @@ checkedRadio = document.querySelector("input[name='ingredient']:checked");
 searchIngredient(checkedRadio);
 
 /**
+ * A pseudorandom integers generator used to randomise the recipes requested in API call.
+ * Used as a from parameter in a request URL.
+ * @param {number} max 
+ * @returns {number} A pseudorandom integer between 0 and max - 1
+ */
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+/**
  * This function adds and ingredient a url, that is used to
  * make the call to the API for birthday cakes with that ingredient
  *
@@ -12,7 +22,7 @@ function searchIngredient(radioInput) {
   recipeDiv.innerHTML = "";
   const rootUrl = "https://api.edamam.com/search";
   fetch(
-    `${rootUrl}?q=birthday+cake+${radioInput.value}&app_id=589ecbd6&app_key=6d6116bfcbdc60fe641222727dc9eb8f`
+    `${rootUrl}?q=birthday+cake+${radioInput.value}&from=${getRandomInt(50)}&app_id=589ecbd6&app_key=6d6116bfcbdc60fe641222727dc9eb8f`
   )
     .then((response) => response.json())
     .then((data) => {
@@ -25,6 +35,7 @@ function searchIngredient(radioInput) {
       data.hits.forEach((element) => {
         // creates a div to contain each recipe
         let recipeContainer = document.createElement("div");
+        recipeContainer.classList.add("item");
         recipeDiv.appendChild(recipeContainer);
 
         // Since different cakes will have different amount of ingredients
