@@ -2,10 +2,15 @@ const recipeDiv = document.querySelector("#recipesDiv");
 checkedRadio = document.querySelector("input[name='ingredient']:checked");
 searchIngredient(checkedRadio);
 
+/**
+ * A pseudorandom integers generator used to randomise the recipes requested in API call.
+ * Used as a from parameter in a request URL.
+ * @param {number} max 
+ * @returns {number} A pseudorandom integer between 0 and max - 1
+ */
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
-
 
 /**
  * This function adds and ingredient a url, that is used to
