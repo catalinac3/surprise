@@ -1,6 +1,9 @@
 # surprise
 Our surprise project
 
-The API used is https://api.edamam.com/, the free plan only acepts 5 calls/min.
+The Edaman API https://developer.edamam.com/edamam-recipe-api is used to retrieve recipies information. 
+The site accepts 10 calls/min.
 
-Live demo is available [here](https://marsamak.github.io/surprise/)
+The background vector created by rawpixel.com - www.freepik.com
+https://www.freepik.com/vectors/background
+

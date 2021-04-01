@@ -1,6 +1,6 @@
 body {
-  margin: 0 auto;
-  color:darkblue;
+  margin: 30px 50px;
+  color: black;
 }
 
 h1 {
@@ -8,11 +8,22 @@ h1 {
   text-align: center;
   font-style: italic;
   padding: 1em;
+  color: rgb(150, 121, 75);
+  -webkit-text-stroke: 0.2px black;
+}
+
+h2 {
+  text-align: center;
 }
 
 form {
-  position: relative;
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.radiobtn-item {
+  margin: 0 20px;
 }
 
 #countdownDiv {
@@ -25,18 +36,12 @@ form {
   left: 0;
   top: 0;
   z-index: 1;
-  background-image: url("img/img5.jpg");
+  background-image: url("img/backg_img.jpg");
   width: 100%;
   height: 100%;
-  
   background-attachment: scroll;
   background-repeat: no-repeat;
   background-size: cover;
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
 }
 
 .content {
@@ -49,17 +54,48 @@ form {
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 10px;
+  column-gap: 20px;
+  row-gap: 20px;
   justify-items: center;
-  justify-content: space-around;  
+  justify-content: space-around;
 }
 
-.item{
-  max-width: 400px;
+.item {
+  box-shadow: 3px 3px 5px darkgrey;
+  background: rgb(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-bottom: 1em;
+  padding: 0.5em
 }
 
 .item h3 {
-  height: 3em;
+  text-align: center;
+  padding: 0 0.5em;
+  margin: 1em 0;
+}
+.item img {
+  max-width: 300px;
+  padding: 0 1em;
+}
+
+.item li {
+  list-style-type: square;
+}
+.item .heading-list-item {
+  list-style-type: none;
+  margin-left: -1em;
+  font-weight: bold;
+  font-style: italic;
+}
+.item form {
+  padding: 0.5em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.item form button {
 }
 
 @media (max-width: 1024px) {

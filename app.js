@@ -5,7 +5,7 @@ searchIngredient(checkedRadio);
 /**
  * A pseudorandom integers generator used to randomise the recipes requested in API call.
  * Used as a from parameter in a request URL.
- * @param {number} max 
+ * @param {number} max
  * @returns {number} A pseudorandom integer between 0 and max - 1
  */
 function getRandomInt(max) {
@@ -22,7 +22,7 @@ function searchIngredient(radioInput) {
   recipeDiv.innerHTML = "";
   const rootUrl = "https://api.edamam.com/search";
   fetch(
-    `${rootUrl}?q=birthday+cake+${radioInput.value}&from=${getRandomInt(50)}&app_id=589ecbd6&app_key=6d6116bfcbdc60fe641222727dc9eb8f`
+    `${rootUrl}?q=birthday+cake+${radioInput.value}&from=0&to=9&app_id=589ecbd6&app_key=6d6116bfcbdc60fe641222727dc9eb8f`
   )
     .then((response) => response.json())
     .then((data) => {
@@ -46,8 +46,11 @@ function searchIngredient(radioInput) {
           const lowCaseElem = elem.toLowerCase();
           const resultElem =
             lowCaseElem.includes("for the cake") ||
-            lowCaseElem.includes("for the frosting")
-              ? `<li class="heading-item">${elem}</li>`
+            lowCaseElem.includes("for the frosting") ||
+            lowCaseElem.includes("for the icing") ||
+            lowCaseElem.includes("for the sponge cake") ||
+            lowCaseElem.includes("ingredients")
+              ? `<li class="heading-list-item">${elem}</li>`
               : `<li>${elem}</li>`;
 
           organizedIngredients += resultElem;
@@ -56,7 +59,9 @@ function searchIngredient(radioInput) {
         recipeContainer.innerHTML = `<h3>${element.recipe.label}</h3>
                                     <img src=${element.recipe.image}>
                                     <ul>${organizedIngredients}</ul>
-                                    <a href ="${element.recipe.url}"><button>to the recipe <i class="fas fa-birthday-cake"></i></button></a>`;
+                                    <form action=${element.recipe.url} method="get" target="_blank">
+                                    <button type="submit">to the recipe <i class="fas fa-birthday-cake"></i></button>
+                                    </form>`
       });
     })
     .catch((error) => {
