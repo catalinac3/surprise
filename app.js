@@ -31,8 +31,7 @@ function searchIngredient(radioInput) {
       // The default number of search is 10 items, i.e when "from=" is specified but "to=" is not,
       // or when neither "to=" or "from=" are specified in the apiUrl.
       // With a free plan we are allowed to request max of 100 items.
-      // console.log(data.hits.length);
-
+    
       data.hits.forEach((element) => {
         // creates a div to contain each recipe
         let recipeContainer = document.createElement("div");

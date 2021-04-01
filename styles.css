@@ -29,6 +29,11 @@ form {
 #countdownDiv {
   text-align: center;
   font-size: 4em;
+  color:rgb(68,68,66);
+}
+
+#countdownDiv i {
+  color:rgb(68,68,66);
 }
 
 .background-image {

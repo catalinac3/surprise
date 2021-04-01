@@ -3,9 +3,11 @@
 //Here is a simple version of the countdown taken from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_countdown
 // Set the date we're counting down to
 
-const countDownDate = new Date("Nov 13, 2020 00:00:00").getTime();
+
 //use this line to have countdown for 10 seconds only - for testing purpose only
-//const countDownDate = new Date().getTime() + 10000; 
+const countDownDate = new Date().getTime() + 10000; 
+
+//const countDownDate = new Date("Nov 13, 2020 00:00:00").getTime();
 
 const mainDivElem = document.querySelector("#mainDiv");
 mainDivElem.style.display = "none";
