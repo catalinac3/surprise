@@ -21,8 +21,9 @@ function getRandomInt(max) {
 function searchIngredient(radioInput) {
   recipeDiv.innerHTML = "";
   const rootUrl = "https://api.edamam.com/search";
+  const startNum = getRandomInt(50);
   fetch(
-    `${rootUrl}?q=birthday+cake+${radioInput.value}&from=0&to=9&app_id=589ecbd6&app_key=6d6116bfcbdc60fe641222727dc9eb8f`
+    `${rootUrl}?q=birthday+cake+${radioInput.value}&from=${startNum}&to=${startNum+9}&app_id=589ecbd6&app_key=6d6116bfcbdc60fe641222727dc9eb8f`
   )
     .then((response) => response.json())
     .then((data) => {
@@ -38,30 +39,35 @@ function searchIngredient(radioInput) {
         recipeContainer.classList.add("item");
         recipeDiv.appendChild(recipeContainer);
 
-        // Since different cakes will have different amount of ingredients
-        // then this codes create list of ingredients according to the number of ingredients
-        const ingredientsList = element.recipe.ingredientLines;
-        let organizedIngredients = "";
-        ingredientsList.forEach((elem) => {
-          const lowCaseElem = elem.toLowerCase();
-          const resultElem =
-            lowCaseElem.includes("for the cake") ||
-            lowCaseElem.includes("for the frosting") ||
-            lowCaseElem.includes("for the icing") ||
-            lowCaseElem.includes("for the sponge cake") ||
-            lowCaseElem.includes("ingredients")
-              ? `<li class="heading-list-item">${elem}</li>`
-              : `<li>${elem}</li>`;
-
-          organizedIngredients += resultElem;
+        // then this codes create list of health labels for each recipe
+        const healthLabels = element.recipe.healthLabels;
+        let organizedLabels = "";
+        healthLabels.forEach((elem) => {
+          const elemlc = elem.toLowerCase();
+          const labelSet = new Set([
+            "alcohol-free",
+            "vegetarian",
+            "peanut-free",
+            "tree-nut-free",
+            "gluten-free",
+            "wheat-free",
+            "egg-free",
+            "dairy-free",
+          ]);
+          if (labelSet.has(elemlc)) {
+            organizedLabels += `<li>${elem}</li>`;
+          }
         });
+        if (organizedLabels != "") {
+          organizedLabels = `<li class="heading-list-item">Health labels:</li> ${organizedLabels}`;
+        }
         // creates label element -- title of the recipe, added picture, add list of ingredients, adds button with a link to the recipe and deco icon
         recipeContainer.innerHTML = `<h3>${element.recipe.label}</h3>
                                     <img src=${element.recipe.image}>
-                                    <ul>${organizedIngredients}</ul>
+                                    <ul>${organizedLabels}</ul>
                                     <form action=${element.recipe.url} method="get" target="_blank">
                                     <button type="submit">to the recipe <i class="fas fa-birthday-cake"></i></button>
-                                    </form>`
+                                    </form>`;
       });
     })
     .catch((error) => {

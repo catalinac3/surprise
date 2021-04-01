@@ -66,8 +66,8 @@ form {
   display: flex;
   flex-direction: column;
   position: relative;
-  padding-bottom: 1em;
-  padding: 0.5em
+  padding: 0.5em;
+  padding-bottom: 1.4em;
 }
 
 .item h3 {
@@ -96,6 +96,13 @@ form {
   right: 0;
 }
 .item form button {
+  padding: 0.3em;
+}
+
+.item form button:hover {
+  background-color:rgb(150, 121, 75);
+  color: rgb(248,244,239);
+  border: 1px;
 }
 
 @media (max-width: 1024px) {
@@ -104,8 +111,17 @@ form {
   }
 }
 
+@media (max-width:955px){
+  h1 {
+    font-size: 3em;
+  }
+}
+
 @media (max-width: 800px) {
   .container {
     grid-template-columns: 1fr;
+  }
+  h1 {
+    font-size: 2em;
   }
 }
