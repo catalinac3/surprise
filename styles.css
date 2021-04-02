@@ -26,7 +26,7 @@ form {
   margin: 0 20px;
 }
 
-#countdownDiv {
+#count-down-div {
   text-align: center;
   font-size: 4em;
   color:rgb(68,68,66);
@@ -34,6 +34,24 @@ form {
 
 #countdownDiv i {
   color:rgb(68,68,66);
+}
+
+.timeUnit {
+  display: inline-block;
+  margin: 10px;
+}
+
+.digit {
+  display: inline-block;
+  padding: 10px;
+  margin: 2px;
+  border: 1px solid grey;
+  box-shadow: 3px 3px 3px darkgrey;
+/*   animation: digitMoves  1s; */
+}
+
+.timeLabels {
+  font-size: 0.3em;
 }
 
 .background-image {
