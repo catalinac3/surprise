@@ -73,6 +73,7 @@ form {
   position: relative;
   padding: 0.5em;
   padding-bottom: 1.4em;
+  max-width: 340px;
 }
 
 .item h3 {
