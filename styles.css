@@ -29,11 +29,11 @@ form {
 #count-down-div {
   text-align: center;
   font-size: 4em;
-  color:rgb(68,68,66);
+  color: rgb(68, 68, 66);
 }
 
 #countdownDiv i {
-  color:rgb(68,68,66);
+  color: rgb(68, 68, 66);
 }
 
 .timeUnit {
@@ -47,7 +47,7 @@ form {
   margin: 2px;
   border: 1px solid grey;
   box-shadow: 3px 3px 3px darkgrey;
-/*   animation: digitMoves  1s; */
+  /*   animation: digitMoves  1s; */
 }
 
 .timeLabels {
@@ -124,8 +124,8 @@ form {
 }
 
 .item form button:hover {
-  background-color:rgb(150, 121, 75);
-  color: rgb(248,244,239);
+  background-color: rgb(150, 121, 75);
+  color: rgb(248, 244, 239);
   border: 1px;
 }
 
@@ -133,11 +133,26 @@ form {
   .container {
     grid-template-columns: 1fr 1fr;
   }
+
+  .timeLabels {
+    font-size: 0.5em;
+  }
+  #count-down-div {
+    font-size: 2.5em;
+  }
 }
 
-@media (max-width:955px){
+@media (max-width: 955px) {
   h1 {
     font-size: 3em;
+  }
+  #count-down-div {
+    font-size: 1.3em;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
