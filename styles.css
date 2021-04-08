@@ -148,6 +148,7 @@ form {
   }
   #count-down-div {
     font-size: 1.3em;
+    
   }
   form {
     display: flex;
@@ -162,5 +163,6 @@ form {
   }
   h1 {
     font-size: 2em;
+    color: black;
   }
 }

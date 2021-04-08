@@ -6,7 +6,7 @@
 //use this line to have countdown for 10 seconds only - for testing purpose only
 // const countDownDate = new Date().getTime() + 20000;
 
-const countDownDate = new Date().getTime() + 200000000000;
+const countDownDate = new Date().getTime() + 20000;
 
 //const countDownDate = new Date("Nov 13, 2020 00:00:00").getTime();
 
@@ -75,4 +75,3 @@ let intervalID = setInterval(function () {
     document.querySelector("h1").innerHTML += "<br> Let's bake a cake :)";
   }
 }, 1000);
-
