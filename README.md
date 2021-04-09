@@ -1,7 +1,7 @@
 # surprise
-Our surprise project
+This project is though as a birthday surprise.
 
-The Edaman API https://developer.edamam.com/edamam-recipe-api is used to retrieve recipies information. 
+It uses the Edaman API https://developer.edamam.com/edamam-recipe-api to retrieve recipies information. 
 The site accepts 10 calls/min.
 
 The background vector created by rawpixel.com - www.freepik.com

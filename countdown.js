@@ -4,9 +4,7 @@
 // Set the date we're counting down to
 
 //use this line to have countdown for 10 seconds only - for testing purpose only
-// const countDownDate = new Date().getTime() + 20000;
-
-const countDownDate = new Date().getTime() + 2000;
+const countDownDate = new Date().getTime() + 20000;
 
 //const countDownDate = new Date("Nov 13, 2020 00:00:00").getTime();
 
