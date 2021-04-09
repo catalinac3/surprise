@@ -4,7 +4,7 @@ body {
 }
 
 h1 {
-  font-size: 4em;
+  font-size: 5em;
   text-align: center;
   font-style: italic;
   padding: 1em;
@@ -14,12 +14,17 @@ h1 {
 
 h2 {
   text-align: center;
+  font-size: 2em;
 }
 
+h3 {
+  font-size: 1.5em;
+}
 form {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  font-size: 1.3em;
 }
 
 .radiobtn-item {
@@ -106,12 +111,14 @@ form {
 
 .item li {
   list-style-type: square;
+  font-size: 1.2em;
 }
 .item .heading-list-item {
   list-style-type: none;
   margin-left: -1em;
   font-weight: bold;
   font-style: italic;
+  font-size: 1.3em;
 }
 .item form {
   padding: 0.5em;
@@ -121,6 +128,7 @@ form {
 }
 .item form button {
   padding: 0.3em;
+  font-size: 0.7em;
 }
 
 .item form button:hover {
@@ -140,20 +148,39 @@ form {
   #count-down-div {
     font-size: 2.5em;
   }
+  h1 {
+    font-size: 4.2em;
+  }
 }
 
 @media (max-width: 955px) {
   h1 {
-    font-size: 3em;
+    font-size: 3.4em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  .item h3 {
+    font-size: 1.2em;
   }
   #count-down-div {
     font-size: 1.3em;
-    
+  }
+  #countdownDiv i {
+    font-size: 1em;
   }
   form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    text-align: center;
+    font-size: 1.1em;
+  }
+  .item li,
+  .item .heading-list-item {
+    font-size: 1.1em;
+  }
+  .item form button {
+    font-size: 0.8em;
   }
 }
 
@@ -162,7 +189,13 @@ form {
     grid-template-columns: 1fr;
   }
   h1 {
-    font-size: 2em;
     color: black;
+    font-size: 3em;
+  }
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 2.5em;
   }
 }

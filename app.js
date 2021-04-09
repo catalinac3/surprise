@@ -23,7 +23,9 @@ function searchIngredient(radioInput) {
   const rootUrl = "https://api.edamam.com/search";
   const startNum = getRandomInt(50);
   fetch(
-    `${rootUrl}?q=birthday+cake+${radioInput.value}&from=${startNum}&to=${startNum+9}&app_id=589ecbd6&app_key=6d6116bfcbdc60fe641222727dc9eb8f`
+    `${rootUrl}?q=birthday+cake+${radioInput.value}&from=${startNum}&to=${
+      startNum + 9
+    }&app_id=589ecbd6&app_key=6d6116bfcbdc60fe641222727dc9eb8f`
   )
     .then((response) => response.json())
     .then((data) => {
@@ -31,7 +33,7 @@ function searchIngredient(radioInput) {
       // The default number of search is 10 items, i.e when "from=" is specified but "to=" is not,
       // or when neither "to=" or "from=" are specified in the apiUrl.
       // With a free plan we are allowed to request max of 100 items.
-    
+
       data.hits.forEach((element) => {
         // creates a div to contain each recipe
         let recipeContainer = document.createElement("div");
@@ -61,10 +63,14 @@ function searchIngredient(radioInput) {
           organizedLabels = `<li class="heading-list-item">Health labels:</li> ${organizedLabels}`;
         }
         // creates label element -- title of the recipe, added picture, add list of ingredients, adds button with a link to the recipe and deco icon
-        recipeContainer.innerHTML = `<h3>${element.recipe.label}</h3>
+        recipeContainer.innerHTML = `<h3>${formatTitle(
+          element.recipe.label
+        )}</h3>
                                     <img src=${element.recipe.image}>
                                     <ul>${organizedLabels}</ul>
-                                    <form action=${element.recipe.url} method="get" target="_blank">
+                                    <form action=${
+                                      element.recipe.url
+                                    } method="get" target="_blank">
                                     <button type="submit">to the recipe <i class="fas fa-birthday-cake"></i></button>
                                     </form>`;
       });
@@ -72,4 +78,25 @@ function searchIngredient(radioInput) {
     .catch((error) => {
       console.error("Error:", error);
     });
+}
+
+/**
+ * this function makes sure that on the title, the first
+ * letter of each word is upper case and the rest of the word is lower case
+ * @param {string} phrase 
+ * @returns 
+ */
+function formatTitle(phrase) {
+  console.log (phrase);
+  let wordList = phrase.split(" ");
+  let newWordList = [];
+
+  wordList.forEach((word) => {
+    if (typeof word == "string") {
+      newWordList.push(word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+    } else {
+      newWordList.push(word);
+    }
+  });
+  return newWordList.join(" ");
 }
